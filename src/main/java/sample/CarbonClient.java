@@ -11,7 +11,7 @@ public class CarbonClient {
 
         try (Socket socket = new Socket(host, port);
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
-
+            out.println("CarbonClient");
             int min = 0;
             int max = 20000;
 

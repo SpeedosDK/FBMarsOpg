@@ -23,8 +23,19 @@ public class HQClienthandler implements Runnable{
         try (Socket socket = clientSocket;
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"))){
         clientList.add(in);
+        String clientName = in.readLine();
             while (true){
                 String message = in.readLine();
+
+                int value = Integer.parseInt(message);
+
+                if (message != null){
+                    System.out.println(message);
+                }
+                if (clientName.equals("CarbonClient") && value > 36 || value < -15 ){
+                    System.out.println("test");
+                }
+
             }
 
         } catch (IOException e){

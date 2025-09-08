@@ -11,6 +11,7 @@ public class IltClient {
 
         try (Socket socket = new Socket(host, port);
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
+            out.println("Pressure");
 
             int min = 0;
             int max = 100;

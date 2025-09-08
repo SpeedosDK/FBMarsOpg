@@ -16,9 +16,11 @@ public class HQServer {
         try (ServerSocket serverSocket = new ServerSocket(port)){
             System.out.println("Server started on port " + port);
 
+
             while (true) {
-                try (Socket clientSocket = serverSocket.accept()){
-                    clients.add(clientSocket.bind(new InetSocketAddress(port)));
+                try {
+                    Socket clientSocket = serverSocket.accept();
+                   new Thread(new HQClienthandler(clientSocket, clients)).start();
                 }catch (IOException e){
                     e.printStackTrace();
                 }
