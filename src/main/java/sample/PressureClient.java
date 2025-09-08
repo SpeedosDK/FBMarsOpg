@@ -11,6 +11,7 @@ public class PressureClient {
 
         try (Socket socket = new Socket(host, port);
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
+            out.println("PressureClient");
 
             int min = 0;
             int max = 20000;

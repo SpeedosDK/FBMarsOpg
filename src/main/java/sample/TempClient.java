@@ -16,6 +16,8 @@ public class TempClient {
         try(Socket socket = new Socket(host, port);
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
 
+            out.println("TempClient");
+
             int min = -100;
             int max = 100;
 

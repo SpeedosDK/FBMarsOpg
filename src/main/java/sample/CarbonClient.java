@@ -13,12 +13,12 @@ public class CarbonClient {
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
             out.println("CarbonClient");
             int min = 0;
-            int max = 20000;
+            int max = 2500;
 
             try {
                 while (true) {
                     int carbon = (int) (Math.random() * (max - min)) + min;
-                    out.println("CO2: " + carbon + "ppm");
+                    out.println("Carbondioxid: " + carbon + "ppm");
                     Thread.sleep(5000);
                 }
             } catch (InterruptedException e) {

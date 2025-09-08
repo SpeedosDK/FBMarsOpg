@@ -26,14 +26,24 @@ public class HQClienthandler implements Runnable{
         String clientName = in.readLine();
             while (true){
                 String message = in.readLine();
+                String number = message.replaceAll("[^0-9]", "");
 
-                int value = Integer.parseInt(message);
+                int value = Integer.parseInt(number);
 
                 if (message != null){
                     System.out.println(message);
                 }
-                if (clientName.equals("CarbonClient") && value > 36 || value < -15 ){
-                    System.out.println("test");
+                if (clientName.equals("CarbonClient") && value > 2000 ){
+                    System.out.println("Alarm: " + number);
+                }
+                if (clientName.equals("OxygenClient") && value < 19 || value > 23){
+                    System.out.println("Alarm! Iltniveau er på: " + number);
+                }
+                if (clientName.equals("PressureClient") && value < 800 || value > 1100){
+                    System.out.println("Alarm! Trykniveau er på: " + number);
+                }
+                if (clientName.equals("TempClient") && value < -15 || value > 35){
+                    System.out.println("Alarm! Temperatur er: " + number);
                 }
 
             }
