@@ -19,7 +19,7 @@ public class IltClient {
             try {
                 while (true) {
                     int ilt = (int) (Math.random() * (max - min)) + min;
-                    out.println("O2: " + ilt + "%");
+                    out.println("Oxygen level: " + ilt + "%");
                     Thread.sleep(5000);
                 }
             } catch (InterruptedException e) {

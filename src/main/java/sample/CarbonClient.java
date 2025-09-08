@@ -18,7 +18,7 @@ public class CarbonClient {
             try {
                 while (true) {
                     int carbon = (int) (Math.random() * (max - min)) + min;
-                    out.println("Carbondioxid: " + carbon + "ppm");
+                    out.println("Carbondioxide: " + carbon + "ppm");
                     Thread.sleep(5000);
                 }
             } catch (InterruptedException e) {
