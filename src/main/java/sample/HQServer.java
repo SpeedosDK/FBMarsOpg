@@ -12,10 +12,9 @@ import java.util.logging.Logger;
 
 public class HQServer {
     public static void main(String[] args) {
+        //Opretter trådpøl, med diverse indstillinger
         ThreadPoolExecutor pool = new ThreadPoolExecutor(5, 5, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
         int port = 5555;
-        final Logger logger = Logger.getLogger("Server");
-        final List<BufferedReader> clients = Collections.synchronizedList(new ArrayList<>());
 
         try (ServerSocket serverSocket = new ServerSocket(port)){
             System.out.println("Server started on port " + port);
@@ -24,7 +23,7 @@ public class HQServer {
             while (true) {
                 try {
                     Socket clientSocket = serverSocket.accept();
-                   pool.submit(new HQClienthandler(clientSocket));
+                   pool.submit(new HQClienthandler(clientSocket)); //Tilføjer clienter til pølen
                 }catch (IOException e){
                     e.printStackTrace();
                 }
